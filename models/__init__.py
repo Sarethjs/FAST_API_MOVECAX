@@ -17,7 +17,7 @@ def get_connection():
             return db_connect
 
         else:
-            if db_connect.is_closed():
+            if not db_connect.is_connected():
                 db_connect.connect()
 
             return db_connect

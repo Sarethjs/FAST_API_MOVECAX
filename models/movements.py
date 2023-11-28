@@ -78,9 +78,6 @@ class Movement:
             raise cax_errors.DataNotInsertedException("Can't connect to database")
 
         try:
-            if not connection.is_connected():
-                connection.connect()
-
             cursor = connection.cursor()
             query = f"""
                 SELECT origin, dest, route_name, date FROM movements 
