@@ -17,6 +17,9 @@ def get_connection():
             return db_connect
 
         else:
+            if db_connect.is_closed():
+                db_connect.connect()
+
             return db_connect
 
     except mysql.connector.Error:
